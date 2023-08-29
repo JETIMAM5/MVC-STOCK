@@ -16,5 +16,17 @@ namespace MVC_STOCK.Controllers
             var customer = db.TBLCUSTOMERS.ToList();
             return View(customer);
         }
+        [HttpGet]
+        public ActionResult NewCustomer()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult NewCustomer(TBLCUSTOMERS customer)
+        {
+            db.TBLCUSTOMERS.Add(customer);
+            db.SaveChanges();
+            return View();
+        }
     }
 }

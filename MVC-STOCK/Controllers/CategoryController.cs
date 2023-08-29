@@ -16,5 +16,18 @@ namespace MVC_STOCK.Controllers
             var categories = db.TBLCATEGORIES.ToList();
             return View(categories);
         }
+        [HttpGet]
+        public ActionResult NewCategory() 
+        {
+        return View();
+        }
+
+        [HttpPost]
+        public ActionResult NewCategory(TBLCATEGORIES p1)
+        {
+            db.TBLCATEGORIES.Add(p1);
+            db.SaveChanges();
+            return View();
+        }
     }
 }
