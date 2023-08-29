@@ -28,5 +28,12 @@ namespace MVC_STOCK.Controllers
             db.SaveChanges();
             return View();
         }
+        public ActionResult DeleteCustomer(int id) 
+        {
+            var customer = db.TBLCUSTOMERS.Find(id);
+            db.TBLCUSTOMERS.Remove(customer);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

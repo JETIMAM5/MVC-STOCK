@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
 using MVC_STOCK.Models.Entity;
@@ -32,9 +33,19 @@ namespace MVC_STOCK.Controllers
         [HttpPost]
         public ActionResult NewProduct(TBLPRODUCTS product)
         {
+            var ctg = db.TBLCATEGORIES.Where(m=>m.CATEGORYID==product.TBLCATEGORIES.CATEGORYID).FirstOrDefault();
+            product.TBLCATEGORIES = ctg;
+
             db.TBLPRODUCTS.Add(product);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("Index");
+        }
+        public ActionResult DeleteProduct(int id) 
+        {
+            var product = db.TBLPRODUCTS.Find(id);
+            db.TBLPRODUCTS.Remove(product);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

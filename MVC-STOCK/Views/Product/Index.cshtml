@@ -24,9 +24,9 @@
                 <td>@product.PRODNAME</td>
                 <td>@product.PRICE</td>
                 <td>@product.BRAND</td>
-                <td>@product.PRODCATEGORY</td>
+                <td>@product.TBLCATEGORIES.CATEGORYNAME</td>
                 <td>@product.STOCK</td>
-                <td><a href="/PRODUCT/DELETE/@product.PRODID" class="btn btn-danger">DELETE</a></td>
+                <td><a href="/Product/DeleteProduct/@product.PRODID" class="btn btn-danger">DELETE</a></td>
                 <td><a href="/PRODUCT/UPDATE/@product.PRODID" class="btn btn-success">UPDATE</a></td>
 
             </tr>
