@@ -1,0 +1,6 @@
+# MVC-STOCK
+MVC STOCK CONTROL PROJECT
+This poject is kind of a introduction of How to use MVC with EntityFramework , EntityDataModel and also liitle bit of LINQ expressions 
+Scope of this project is learning MVC structure with basics ...
+DbFirst model , Http , an existing Bootstrap navbar from W3Schools were used ...
+Good Work Everyone !
