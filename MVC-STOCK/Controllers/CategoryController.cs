@@ -37,5 +37,17 @@ namespace MVC_STOCK.Controllers
             return RedirectToAction("Index");
         
         }
+        public ActionResult BringCategory(int id) 
+        {
+            var category = db.TBLCATEGORIES.Find(id);
+            return View("BringCategory",category);
+        }
+        public ActionResult Update(TBLCATEGORIES p1) 
+        {
+            var category = db.TBLCATEGORIES.Find(p1.CATEGORYID);
+            category.CATEGORYNAME= p1.CATEGORYNAME;
+            db.SaveChanges();
+            return RedirectToAction("Index");   
+        }
     }
 }
