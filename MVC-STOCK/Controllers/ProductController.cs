@@ -47,5 +47,33 @@ namespace MVC_STOCK.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult BringProduct(int id) 
+        {
+        var product = db.TBLPRODUCTS.Find(id);
+            List<SelectListItem> values = (from i in db.TBLCATEGORIES.ToList()
+                                           select new SelectListItem
+
+                                           {
+                                               Text = i.CATEGORYNAME,
+                                               Value = i.CATEGORYID.ToString()
+                                           }).ToList();
+            ViewBag.vls = values;
+           
+            return View("BringProduct", product);
+        }
+        public ActionResult Update(TBLPRODUCTS p1) 
+        {
+            var prd = db.TBLPRODUCTS.Find(p1.PRODID);
+            prd.PRODNAME = p1.PRODNAME;
+            prd.PRICE = p1.PRICE;
+            prd.BRAND = p1.BRAND;
+            //prd.PRODCATEGORY = p1.PRODCATEGORY;
+            var ctg = db.TBLCATEGORIES.Where(m => m.CATEGORYID == p1.TBLCATEGORIES.CATEGORYID).FirstOrDefault();
+            prd.PRODCATEGORY = ctg.CATEGORYID;
+            prd.STOCK=p1.STOCK;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
     }
 }

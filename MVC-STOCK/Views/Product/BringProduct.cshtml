@@ -1,0 +1,36 @@
+﻿@model MVC_STOCK.Models.Entity.TBLPRODUCTS
+@{
+    ViewBag.Title = "BringProduct";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("Update", "Product", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.PRODID)
+        @Html.TextBoxFor(m => m.PRODID, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.PRODNAME)
+        @Html.TextBoxFor(m => m.PRODNAME, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.PRICE)
+        @Html.TextBoxFor(m => m.PRICE, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.BRAND)
+        @Html.TextBoxFor(m => m.BRAND, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.PRODCATEGORY)
+        @Html.DropDownListFor(m=>m.TBLCATEGORIES.CATEGORYID,(List<SelectListItem>)ViewBag.vls, new { @class = "form-control" })
+        @*@Html.TextBoxFor(m => m.PRODCATEGORY, new { @class = "form-control" })*@
+        <br />
+        @Html.LabelFor(m => m.STOCK)
+        @Html.TextBoxFor(m => m.STOCK, new { @class = "form-control" })
+
+
+    </div>
+    <div>
+        <button class="btn btn-warning">UPDATE PRODUCT</button>
+    </div>
+
+}
+
