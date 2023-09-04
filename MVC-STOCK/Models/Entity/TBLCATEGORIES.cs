@@ -11,7 +11,8 @@ namespace MVC_STOCK.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TBLCATEGORIES
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,6 +22,8 @@ namespace MVC_STOCK.Models.Entity
         }
     
         public short CATEGORYID { get; set; }
+
+        [Required(ErrorMessage ="Please,Enter a valid Category name . It must be in string format !")]
         public string CATEGORYNAME { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

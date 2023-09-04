@@ -11,7 +11,8 @@ namespace MVC_STOCK.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TBLCUSTOMERS
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,6 +22,8 @@ namespace MVC_STOCK.Models.Entity
         }
     
         public int CUSTOMERID { get; set; }
+        [Required(ErrorMessage ="Customer name is required!...")]
+        [StringLength(50,ErrorMessage ="Customer name cannot exceed 50 characters!...")]
         public string CUSTOMERNAME { get; set; }
         public string CUSTOMERSURNAME { get; set; }
     

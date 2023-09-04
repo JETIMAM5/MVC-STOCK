@@ -24,6 +24,10 @@ namespace MVC_STOCK.Controllers
         [HttpPost]
         public ActionResult NewCustomer(TBLCUSTOMERS customer)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("NewCustomer");
+            }
             db.TBLCUSTOMERS.Add(customer);
             db.SaveChanges();
             return View();
