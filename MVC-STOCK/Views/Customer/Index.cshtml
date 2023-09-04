@@ -23,6 +23,7 @@
                 <td>@customer.CUSTOMERSURNAME</td>
                 <td><a href="/Customer/DeleteCustomer/@customer.CUSTOMERID" class="btn btn-danger">DELETE</a></td>
                 <td><a href="/Customer/GetCustomer/@customer.CUSTOMERID" class="btn btn-success">UPDATE</a></td>
+                <td>@Html.ActionLink("DELETE", "DeleteCustomer", new {id= customer.CUSTOMERID }, new { @class = "btn btn-warning", onclick = "return confirm('Are you sure you really want to delete?')" })</td>
 
             </tr>
 
