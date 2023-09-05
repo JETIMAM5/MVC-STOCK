@@ -5,17 +5,19 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<table class="table table-bordered">
-    <tr>
-        <th>PRODUCT ID</th>
-        <th>PRODUCT NAME</th>
-        <th>PRODUCT PRICE</th>
-        <th>PRODUCT BRAND</th>
-        <th>PRODUCT CATEGORY</th>
-        <th>PRODUCT STOCK</th>
-        <th>DELETE</th>
-        <th>UPDATE</th>
-    </tr>
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>PRODUCT ID</th>
+            <th>PRODUCT NAME</th>
+            <th>PRODUCT PRICE</th>
+            <th>PRODUCT BRAND</th>
+            <th>PRODUCT CATEGORY</th>
+            <th>PRODUCT STOCK</th>
+            <th>DELETE</th>
+            <th>UPDATE</th>
+        </tr>
+    </thead>
     <tbody>
         @foreach (var product in Model)
         {
@@ -35,4 +37,9 @@
     </tbody>
 </table>
 <a href="/PRODUCT/NewProduct/" class="btn btn-primary">ADD A NEW PRODUCT</a>
-
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="~/Content/DataTables/css/dataTables.jqueryui.css" rel="stylesheet" />
+<script>
+    $('#tbl1').DataTable();
+</script>
